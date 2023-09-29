@@ -1,0 +1,23 @@
+main {
+    background-color: #0281f8;
+}
+
+.single-card{
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin: 1rem;
+    color: white;
+    cursor: pointer;
+    
+    img{
+        height: 3rem;
+    }
+    h5{
+        font-size: .8rem;
+    }
+}
+.cards-group{
+    margin-left: 2rem;
+}

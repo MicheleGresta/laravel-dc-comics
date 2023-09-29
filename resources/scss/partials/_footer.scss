@@ -1,0 +1,46 @@
+.footer-list {
+    background-image: url('/public/images/footer-bg.jpg');
+
+    >.container {
+        position: relative;
+        overflow: hidden;
+    }
+}
+
+.footer-list h4 {
+    font-weight: 700;
+    color: white;
+}
+
+li {
+    font-size: .8rem;
+    padding: .1rem;
+    list-style: none;
+}
+
+a {
+    color: gray;
+    text-decoration: none;
+}
+
+.footer-list img {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    height: 500px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+.footer-contacts{
+    background-color: rgb(48, 48, 48);
+}
+.btn-style{
+    color: white;
+    font-weight: 600;
+    border: 1px solid #0281f8;
+    border-radius: 0;
+    margin-left: 2rem;
+}
+.footer-contacts h4{
+    color: #0281f8;
+}
