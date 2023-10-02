@@ -6,6 +6,11 @@
 
 <div class="bg-card-container">
     <div class="container">
+        <div class="row text-center py-3">
+            <a href="{{ route("comic.create")}}"><button class="btn btn-danger">
+                Aggiungi fumetto
+            </button></a>
+        </div>
         <div class="row row-cols-6">
             @foreach ($comics as $comic)
                 <div class="col py-3">
