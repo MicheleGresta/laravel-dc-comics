@@ -10,6 +10,8 @@ class ComicController extends Controller
     public function index()
     {
         $comics = Comic::all();
+        // $comics = Comic::withTrashed()->get();
+        // $comics = Comic::onlyTrashed()->get();
 
         return view('comic.index', ["comics" => $comics]);
     }
@@ -40,37 +42,80 @@ class ComicController extends Controller
     }
 
     public function store(Request $request)
-{
-    // $data = $request->all();
-    $data = $request->validate(([
-        "title" => "required|string",
-        "description" => "required|string",
-        "image" => "required|string",
-        "price" => "required|integer",
-        "series" => "required|string",
-        "type" => "required|string",
-        "artists" => "required|string",
-        "writers" => "required|string",
-    ]));
+    {
+        // $data = $request->all();
+        $data = $request->validate(([
+            "title" => "required|string",
+            "description" => "required|string",
+            "image" => "required|string",
+            "price" => "required|decimal:2,6",
+            "series" => "required|string",
+            "type" => "required|string",
+            "artists" => "required|string",
+            "writers" => "required|string",
+        ]));
 
-    $data["artists"] = json_encode([$data["artists"]]);
-    $data["writers"] = json_encode([$data["writers"]]);
+        $data["artists"] = json_encode([$data["artists"]]);
+        $data["writers"] = json_encode([$data["writers"]]);
 
-    $newComic = new Comic();
+        $newComic = new Comic();
 
-    $newComic->fill($data);
+        $newComic->fill($data);
 
-    // $newComic->title = $data["title"];
-    // $newComic->description = $data["description"];
-    // $newComic->image = $data["image"];
-    // $newComic->price = number_format($data["price"], 2);
-    // $newComic->series = $data["series"];
-    // $newComic->type = $data["type"];
-    // $newComic->artists = $data["artists"];
-    // $newComic->writers = $data["writers"];
+        // $newComic->title = $data["title"];
+        // $newComic->description = $data["description"];
+        // $newComic->image = $data["image"];
+        // $newComic->price = number_format($data["price"], 2);
+        // $newComic->series = $data["series"];
+        // $newComic->type = $data["type"];
+        // $newComic->artists = $data["artists"];
+        // $newComic->writers = $data["writers"];
 
-    $newComic->save();
+        $newComic->save();
 
-    return redirect()->route("comic.show", $newComic->id);
-}
+        return redirect()->route("comic.show", $newComic->id);
+    }
+
+
+
+
+    public function edit($id)
+    {
+
+        $comic = Comic::findOrFail($id);
+
+        return view("comic.edit", ["comic" => $comic]);
+    }
+
+    public function update(Request $request, $id)
+    {
+
+        $comic = Comic::findOrFail($id);
+        $data = $request->validate(([
+            "title" => "required|string",
+            "description" => "required|string",
+            "image" => "required|string",
+            "price" => "required|decimal:2,6",
+            "series" => "required|string",
+            "type" => "required|string",
+            "artists" => "required|string",
+            "writers" => "required|string",
+        ]));
+
+        $data["artists"] = json_encode([$data["artists"]]);
+        $data["writers"] = json_encode([$data["writers"]]);
+
+        $comic->update($data);
+
+        return redirect()->route("comic.show", $comic->id);
+    }
+
+
+    public function destroy(Request $request, $id)
+    {
+        $comic = Comic::findOrFail($id);
+        $comic->delete();
+
+        return redirect()->route('comic.index');
+    }
 }

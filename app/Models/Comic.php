@@ -4,17 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Comic extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'title', 'description', 'image', 'price', 'series', 'type', 'artists', 'writers'
     ];
 
-    protected $casts = [
-        "artists" => "array",
-        "writers" => "array"
-    ];
+    // protected $casts = [
+    //     "artists" => "string",
+    //     "writers" => "string"
+    // ];
 }

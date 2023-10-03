@@ -49,7 +49,7 @@
     <div class="container">
         <div class="box-container d-flex gap-5 py-3 justify-content-between">
             <div>
-                <img src="/images/dc-logo.png" alt="">
+                <a href="{{route("comic.index")}}"><img src="/images/dc-logo.png" alt=""></a>
             </div>
             <div class="d-flex gap-3 align-items-center">
                 @foreach ($navBar as $singleOne)

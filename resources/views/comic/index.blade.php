@@ -7,7 +7,7 @@
 <div class="bg-card-container">
     <div class="container">
         <div class="row text-center py-3">
-            <a href="{{ route("comic.create")}}"><button class="btn btn-danger">
+            <a href="{{ route("comic.create")}}"><button class="btn btn-success">
                 Aggiungi fumetto
             </button></a>
         </div>

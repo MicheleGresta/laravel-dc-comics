@@ -1,4 +1,5 @@
 @use "bootstrap";
+@use "@fortawesome/fontawesome-free/css/all.min.css";
 
 @use "/resources/scss/partials/header-bg";
 @use "/resources/scss/partials/cards";
@@ -20,10 +21,46 @@
 // }
 
 
-label{
+label {
     width: 150px;
 }
 
-input{
+input {
     width: 300px;
+}
+
+.type-custom {
+    width: 450px;
+    margin: 0 auto;
+}
+
+.return-button {
+    width: auto;
+    margin: 0 auto;
+}
+
+.input-size {
+    width: 600px;
+}
+
+.trash-custom {
+    position: absolute;
+    bottom: -40px;
+    right: 40%;
+    color: rgb(233, 89, 89);
+    font-size: 3rem;
+
+    &:hover{
+        color: red;
+    }
+    .btn{
+        font-size: 3rem;
+    }
+}
+
+.fa-pen{
+    font-size: 3rem;
+    &:hover{
+        color: rgb(240, 227, 43);
+    }
 }
